@@ -1,0 +1,34 @@
+---
+whiskers:
+  version: 2.1.0
+  matrix:
+    - flavor
+  filename: "themes/{{ flavor.identifier }}.toml"
+---
+
+{%- set palette = flavor.colors -%}
+{%- set rainbow = [palette.red, palette.peach, palette.yellow, palette.green, palette.sapphire, palette.mauve] -%}
+
+[colors]
+table_header_color = "#{{ palette.rosewater.hex }}"
+all_cpu_color = "#{{ palette.rosewater.hex }}"
+avg_cpu_color = "#{{ palette.maroon.hex }}"
+cpu_core_colors = [{%- for color in rainbow -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
+ram_color = "#{{ palette.green.hex }}"
+swap_color = "#{{ palette.peach.hex }}"
+rx_color = "#{{ palette.green.hex }}"
+tx_color = "#{{ palette.red.hex }}"
+widget_title_color = "#{{ palette.flamingo.hex }}"
+border_color = "#{{ palette.surface2.hex }}"
+highlighted_border_color = "#{{ palette.pink.hex }}"
+text_color = "#{{ palette.text.hex }}"
+graph_color = "#{{ palette.subtext0.hex }}"
+cursor_color = "#{{ palette.pink.hex }}"
+selected_text_color = "#{{ palette.crust.hex }}"
+selected_bg_color = "#{{ palette.mauve.hex }}"
+high_battery_color = "#{{ palette.green.hex }}"
+medium_battery_color = "#{{ palette.yellow.hex }}"
+low_battery_color = "#{{ palette.red.hex }}"
+{%- set sliced_rainbow = rainbow | slice(start=0, end=4) %}
+gpu_core_colors = [{%- for color in rainbow | slice(start=4) | concat(with=sliced_rainbow) -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
+arc_color = "#{{ palette.sky.hex }}"
