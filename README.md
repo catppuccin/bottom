@@ -36,14 +36,7 @@
 
 ## Usage
 
-1. Open your [bottom config](https://clementtsang.github.io/bottom/nightly/configuration/config-file/default-config/),
-   usually found under `~/.config/bottom/bottom.toml`.
-
-2. Copy the content of your preferred theme into your config.
-   - 🌻 [Latte](themes/latte.toml)
-   - 🪴 [Frappé](themes/frappe.toml)
-   - 🌺 [Macchiato](themes/macchiato.toml)
-   - 🌿 [Mocha](themes/mocha.toml)
+1. Paste the contents of your preferred theme from [`themes/`](./themes/) into your [bottom configuration file](https://clementtsang.github.io/bottom/0.9.6/configuration/config-file/default-config/).
 
 ## 💝 Thanks to
 
