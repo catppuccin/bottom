@@ -36,7 +36,7 @@
 
 ## Usage
 
-1. Paste the contents of your preferred theme from [`themes/`](./themes/) into your [bottom configuration file](https://clementtsang.github.io/bottom/stable/configuration/config-file/default-config/).
+Paste the contents of your preferred theme from [`themes/`](./themes/) into your [bottom configuration file](https://clementtsang.github.io/bottom/stable/configuration/config-file/#default-config-file).
 
 ## 💝 Thanks to
 
