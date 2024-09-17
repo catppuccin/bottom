@@ -9,26 +9,30 @@ whiskers:
 {%- set palette = flavor.colors -%}
 {%- set rainbow = [palette.red, palette.peach, palette.yellow, palette.green, palette.sapphire, palette.mauve] -%}
 
-[colors]
-table_header_color = "#{{ palette.rosewater.hex }}"
-all_cpu_color = "#{{ palette.rosewater.hex }}"
-avg_cpu_color = "#{{ palette.maroon.hex }}"
+[styles.tables]
+headers = {color = "#{{ palette.rosewater.hex }}"}
+[styles.cpu]
+all_entry_color = "#{{ palette.rosewater.hex }}"
+avg_entry_color = "#{{ palette.maroon.hex }}"
 cpu_core_colors = [{%- for color in rainbow -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
+[styles.memory]
 ram_color = "#{{ palette.green.hex }}"
 swap_color = "#{{ palette.peach.hex }}"
+{%- set sliced_rainbow = rainbow | slice(start=0, end=4) %}
+gpu_colors = [{%- for color in rainbow | slice(start=4) | concat(with=sliced_rainbow) -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
+arc_color = "#{{ palette.sky.hex }}"
+[styles.network]
 rx_color = "#{{ palette.green.hex }}"
 tx_color = "#{{ palette.red.hex }}"
-widget_title_color = "#{{ palette.flamingo.hex }}"
+[styles.widgets]
+widget_title = {color = "#{{ palette.flamingo.hex }}"}
 border_color = "#{{ palette.surface2.hex }}"
-highlighted_border_color = "#{{ palette.pink.hex }}"
-text_color = "#{{ palette.text.hex }}"
+selected_border_color = "#{{ palette.pink.hex }}"
+text = {color = "#{{ palette.text.hex }}"}
+selected_text = {color = "#{{ palette.crust.hex }}", bg_color = "#{{ palette.mauve.hex }}"}
+[styles.graphs]
 graph_color = "#{{ palette.subtext0.hex }}"
-cursor_color = "#{{ palette.pink.hex }}"
-selected_text_color = "#{{ palette.crust.hex }}"
-selected_bg_color = "#{{ palette.mauve.hex }}"
+[styles.battery]
 high_battery_color = "#{{ palette.green.hex }}"
 medium_battery_color = "#{{ palette.yellow.hex }}"
 low_battery_color = "#{{ palette.red.hex }}"
-{%- set sliced_rainbow = rainbow | slice(start=0, end=4) %}
-gpu_core_colors = [{%- for color in rainbow | slice(start=4) | concat(with=sliced_rainbow) -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
-arc_color = "#{{ palette.sky.hex }}"
