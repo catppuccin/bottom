@@ -4,7 +4,7 @@ avg_entry_color = "#e64553"
 cpu_core_colors = ["#d20f39","#fe640b","#df8e1d","#40a02b","#209fb5","#8839ef"]
 [styles.memory]
 ram_color = "#40a02b"
-cache_color = "#fe640b"
+cache_color = "#d20f39"
 swap_color = "#fe640b"
 gpu_colors = ["#209fb5","#8839ef","#d20f39","#fe640b","#df8e1d","#40a02b"]
 arc_color = "#04a5e5"

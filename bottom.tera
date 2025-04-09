@@ -15,7 +15,7 @@ avg_entry_color = "#{{ palette.maroon.hex }}"
 cpu_core_colors = [{%- for color in rainbow -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
 [styles.memory]
 ram_color = "#{{ palette.green.hex }}"
-cache_color = "#{{ palette.peach.hex }}"
+cache_color = "#{{ palette.red.hex }}"
 swap_color = "#{{ palette.peach.hex }}"
 {%- set sliced_rainbow = rainbow | slice(start=0, end=4) %}
 gpu_colors = [{%- for color in rainbow | slice(start=4) | concat(with=sliced_rainbow) -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
