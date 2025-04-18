@@ -9,14 +9,13 @@ whiskers:
 {%- set palette = flavor.colors -%}
 {%- set rainbow = [palette.red, palette.peach, palette.yellow, palette.green, palette.sapphire, palette.mauve] -%}
 
-[styles.tables]
-headers = {color = "#{{ palette.rosewater.hex }}"}
 [styles.cpu]
 all_entry_color = "#{{ palette.rosewater.hex }}"
 avg_entry_color = "#{{ palette.maroon.hex }}"
 cpu_core_colors = [{%- for color in rainbow -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
 [styles.memory]
 ram_color = "#{{ palette.green.hex }}"
+cache_color = "#{{ palette.red.hex }}"
 swap_color = "#{{ palette.peach.hex }}"
 {%- set sliced_rainbow = rainbow | slice(start=0, end=4) %}
 gpu_colors = [{%- for color in rainbow | slice(start=4) | concat(with=sliced_rainbow) -%}"#{{ color.hex }}"{%- if not loop.last -%},{%- endif -%}{%- endfor -%}]
@@ -24,15 +23,21 @@ arc_color = "#{{ palette.sky.hex }}"
 [styles.network]
 rx_color = "#{{ palette.green.hex }}"
 tx_color = "#{{ palette.red.hex }}"
-[styles.widgets]
-widget_title = {color = "#{{ palette.flamingo.hex }}"}
-border_color = "#{{ palette.surface2.hex }}"
-selected_border_color = "#{{ palette.pink.hex }}"
-text = {color = "#{{ palette.text.hex }}"}
-selected_text = {color = "#{{ palette.crust.hex }}", bg_color = "#{{ palette.mauve.hex }}"}
-[styles.graphs]
-graph_color = "#{{ palette.subtext0.hex }}"
+rx_total_color = "#{{ palette.sky.hex }}"
+tx_total_color = "#{{ palette.green.hex }}"
 [styles.battery]
 high_battery_color = "#{{ palette.green.hex }}"
 medium_battery_color = "#{{ palette.yellow.hex }}"
 low_battery_color = "#{{ palette.red.hex }}"
+[styles.tables]
+headers = {color = "#{{ palette.rosewater.hex }}"}
+[styles.graphs]
+graph_color = "#{{ palette.subtext0.hex }}"
+legend_text = {color = "#{{ palette.subtext0.hex }}"}
+[styles.widgets]
+border_color = "#{{ palette.surface2.hex }}"
+selected_border_color = "#{{ palette.pink.hex }}"
+widget_title = {color = "#{{ palette.flamingo.hex }}"}
+text = {color = "#{{ palette.text.hex }}"}
+selected_text = {color = "#{{ palette.crust.hex }}", bg_color = "#{{ palette.mauve.hex }}"}
+disabled_text = {color = "#{{ palette.base.hex }}"}
